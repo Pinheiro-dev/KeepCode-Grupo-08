@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCODE</title>
+    <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+
+<body>
+    <main class="page">
+        <header>
+            <input id="menu-hamburguer" type="checkbox" />
+            <label for="menu-hamburguer">
+                <div class="menu">
+                    <span class="hamburguer"></span>
+                </div>
+            </label>
+            <div class="nav-lista">
+                <div class="lista-opcoes">
+                    <ul>
+                        <a href="../../index.html">
+                            <li class="informacoes">Home</li>
+                        </a>
+                        <a href="../Institucional/about-us.html">
+                            <li class="informacoes">Quem somos</li>
+                        </a>
+                        <a href="../Institucional/findout.html">
+                            <li class="informacoes">Descobrir</li>
+                        </a>
+                        <a href="../Institucional/our-solution.html">
+                            <li class="informacoes">Nossa solução</li>
+                        </a>
+                        <a href="../Institucional/login.html">
+                            <li class="informacoes">Sign in</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <a href="../../index.html">
+                <h1 class="logo-text">KEEPCODE</h1>
+            </a>
+        </header>
+        <section class="alinhando-texto">
+            <div class="text-alinhado">
+                <b>NOSSO TIME</b>
+            </div>
+        </section>
+        <section class="usImg">
+            <img src="../../img/somos2.png" alt="" id="imgSomos">
+        </section>
+        <section class="box-all-names" id="box-names-left">
+            <ul>
+                <li class="box-names" onclick="openModal('dv-modal1')"> BRUNO</li>
+                <li class="box-names" onclick="openModal('dv-modal2')"> MATHIAS </li>
+                <li class="box-names" onclick="openModal('dv-modal3')"> MATHEUS </li>
+            </ul>
+        </section>
+        <section class="box-all-names" id="box-names-right">
+            <ul>
+                <li class="box-names" onclick="openModal('dv-modal4')"> SAMUEL </li>
+                <li class="box-names" onclick="openModal('dv-modal5')"> LUIS </li>
+                <li class="box-names" onclick="openModal('dv-modal6')"> ISABELLA </li>
+            </ul>
+        </section>
+        <footer class="footer1">
+            <div class="box-footer" id="contato-empresarial">
+                <span><b>Contato</b></span>
+                Rua Haddok Lobo 595 <br>
+                São Paulo - SP - CEP 01414-905 <br>
+                (11) 2384-0732 / 4128-3666 <br>
+                contato@kcode.com.br <br>
+            </div>
+            <hr>
+            <div class="box-footer" id="email-contato">
+                <div class="parte-texto">
+                    <b>Mande seu e-mail e <br>
+                        entraremos em contato</b>
+                </div>
+                <div class="parte-inputs">
+                    <input type="text" placeholder="NOME">
+                    <input type="email" placeholder="E-MAIL">
+                </div>
+            </div>
+            <hr>
+            <div class="box-footer" id="parcerias">
+                <div class="box-img">
+                    <img src="../../img/logo-maior.png" alt="logo-empresa" id="imagem-parcerias">
+                </div>
+                <div class="box-img">
+                    <img src="../../img/logo-fundo-bandtec.png" alt="logo-bandtec" id="imagem-parcerias">
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- MODAL -->
+
+
+    <div id="dv-modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/bruno.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+
+                <h2 id="name_team">BRUNO RICARDO</h2>
+                <p>22 ANOS</p>
+                <p>ESTAGIARIO DE INFRAESTRUTURA</p>
+                <p>ACCENTURE</p>
+                <p>"Estou mais preparado do que antes, acho que esse novo projeto vai me dar oportunidades para me
+                    aprimorar ainda mais, e com o apoio das pessoas a minha volta, acreditando na minha evolução profissional
+                    e agregamento pessoal"
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal1')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dv-modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/mathias.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+
+                <h2 id="name_team">MATHIAS DE SOUZAS</h2>
+                <p>19 ANOS</p>
+                <p>ESTAGIARIO DE CYBER SECURITY</p>
+                <p>ACCENTURE</p>
+                <p>"Com essa nova fase espero me aprofundar mais em linguagens de mais baixo nível, e creio que esse
+                    será o melhor início para mim, com ajuda da minha equipe para minha constante evolução"</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal2')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dv-modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/matheus.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+
+                <h2 id="name_team">MATHEUS PINHEIRO</h2>
+                <p>19 ANOS</p>
+                <p>ESTAGIARIO DE DEV MOBILE</p>
+                <p>VALEMOBI</p>
+                <p>"Minha expectativa para esse projeto está muito alta, estou feliz por estar nesse grupo e acredito
+                    que este projeto me possibilitará diversos aprendizados, tanto pessoal como profissional."</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal3')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dv-modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/samuel.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+
+                <h2 id="name_team">SAMUEL LOPES</h2>
+                <p>20 ANOS</p>
+                <p>ESTAGIARIO DE DEVOPS</p>
+                <p>VALEMOBI</p>
+                <p>"Minha esperança com relação ao projeto é grande, poder aprender e desenvolver novas tecnologias que
+                    ainda não tenho domínio, me expondo a um ambiente novo com o intuito de aprender e aprimonar 
+                    as habilidades tecnicas e profissionais"</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal4')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dv-modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/luis.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+
+                <h2 id="name_team">LUIS FERNANDO ROCHA</h2>
+                <p>22 ANOS</p>
+                <p>ESTAGIARIO DE DEV WEB</p>
+                <p>VALEMOBI</p>
+                <p>"Tenho mais uma oportunidade para mostrar tudo que sou capaz nesse projeto, darei meu melhor
+                    para agregar valores ao meu time a essa empresa, acreditando e confiando nas pessoas a minha volta
+                    para que o projeto venha a melhorar cada vez mais"
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal5')">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="dv-modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>KCODE APRESENTA:</h1>
+            </div>
+            <div class="modal-body">
+                <img src="../../img/isa.png" alt="Membro imagem" class="imagem-modal"
+                    style="width: 25%; float: left; margin: 2%;">
+                <h2 id="name_team">ISABELLA PIRES</h2>
+                <p>18 ANOS</p>
+                <p>ESTAGIARIA DE NEGÓCIOS</p>
+                <p>VALEMOBI</p>
+                <p>"Esse projeto será um grande desafio profissional e pessoal, mas confio na meu time e orientação dos
+                    professores para uma realização de sucesso, buscando a constante melhora nas habilidades tecnicas
+                    e interpessoais"</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal6')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/js.js"></script>
+</body>
+
+</html>

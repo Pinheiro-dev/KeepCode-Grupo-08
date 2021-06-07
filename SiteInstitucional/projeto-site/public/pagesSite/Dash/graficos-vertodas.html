@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../css/dash.css">
+  <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <script defer src="../../js/dash.js"></script>
+  <script defer src="../../js/js.js"></script>
+  <script defer src="../../funcoes.js"></script>
+  <title>KCODE</title>
+  <!-- links api -->
+  <link rel="stylesheet" href="../../css/loading-bar.css">
+  <link rel="stylesheet" href="../../css/loading-bar.min.css">
+  <script src="../../js/loading-bar.js"></script>
+  <script src="../../js/loading-bar.min.js"></script>
+</head>
+
+<body onload="verificar_autenticacao()">
+  <main class="page">
+    <div class="menu">
+      <div class="container">
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="dashgestor.html">
+                <span class="icon">
+                  <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+                </span>
+                <span class="title">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="preperfil.html">
+                <span class="icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+                <span class="title">Perfil</span>
+              </a>
+            </li>
+            <li>
+              <a onclick="funciona()">
+                <span class="icon">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </span>
+                <span class="title">Tutorial</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                  </i>
+                </span>
+                <span class="title">Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                </span>
+                <span class="title">Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="toggle"></div>
+      </div>
+    </div>
+    <!-- menu end-->
+    <header>
+      <div class="box-recepction">
+        <div class="recection-welcome">
+          <h1>Aqui você pode ver o desempenho da máquina!</b> </h1>
+          <!-- <p>Aqui você pode ver o desempenho da máquina</p> -->
+        </div>
+        <div class="logo-recepction">
+          <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+
+        </div>
+      </div>
+    </header>
+    <div class="ides-container">
+      <div class="container-info">
+
+        <div id="usuario-tutorial" class="info-time">
+          <div class="container-titulo">
+            <h1>Usuário</h1>
+            <div class="edit">
+
+              <div class="tooltip">
+                <a href="#">
+                  <i onclick="openModal('dv-modal1')" class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <span class="tooltiptext">Editar dados</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="container-label">
+            <p> Nome: <span id="nome_integrante"></span> </p>
+            <p> Cargo: <span id="cargo_integrante"></span> </p>
+            <p> Time: <span id="nome_equipe"></span> </p>
+          </div>
+
+        </div>
+        <div id="maq-tutorial" class="info-time">
+          <div class="container-titulo">
+            <h1>Máquina</h1>
+          </div>
+
+          <div class="container-label">
+            <p> Nome: <span id="nomePc"></span> </p>
+            <p> Total ram: <span id="total_ram"></span> </p>
+            <p> Total disco: <span id="total_disco"></span> </p>
+            <p> CPU: <span id="cpu"></span> </p>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="container-ides">
+        <div class="titulo-hardware">
+          <p>Gráficos sobre o usuário</p>
+        </div>
+        <div class="container-labell">
+          <div class="label-info">
+            <p>Tempo de ultilização da máquina</p>
+          </div>
+          <div class="label-info">
+            <p>IDE's ultilizadas</p>
+          </div>
+        </div>
+        <div class="container-grafic">
+          <div class="grafic">
+            <div class="container-total">
+              <div class="box-grafic">
+                <div class="container-hora-1">
+                  <p>04H 06M</p>
+                </div>
+                <div id="graficoTempo" value="60" style="width: 70%; height: 70%;" class="label-center"
+                  data-precision="0.1" data-preset="circle">
+                </div>
+
+                <div class="container-hora">
+                  <p>06H 35M</p>
+                </div>
+                <div class="container-uso">
+                  <div class="legenda-tempouso">
+                    <p>Ativo</p>
+
+                  </div>
+                </div>
+
+                <div class="container-uso-1">
+                  <div class="legenda-tempouso-1">
+                    <p>Inativo</p>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+          </div>
+          <div class="grafic">
+            <div class="grafic-container">
+            </div>
+            <div class="legenda">
+              <div class="box-legenda">
+                <div class="uso-ram"></div>
+                <p>Uso de ram</p>
+              </div>
+              <div class="box-legenda">
+                <div class="uso-tempo"></div>
+                <p>Tempo de uso</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="footer-ajuda">
+      <div class="ajuda">
+        <script id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+      </div>
+    </div>
+
+    <div id="dv-modal1" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Editar os dados do usuário</h1>
+        </div>
+        <div class="modal-body">
+
+          <form id="form_editar" method="post" onsubmit="return editarUsuario()">
+            <div class="container-modal">
+
+              <div class="inputs-modal">
+
+                <label class="label-modal">Login</label>
+                <input id="login_cad" name="login_cad" required="required" type="text" readonly="true"
+                  placeholder="Digite o login" />
+
+                <label class="label-modal">Nome</label>
+                <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Digite o nome" />
+
+                <label class="label-modal">Time</label>
+                <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
+
+              </div>
+              <div class="inputs-modal">
+
+                <label class="label-modal">Cargo</label>
+                <input id="cargo" name="cargo" required="required" type="text" placeholder="Digite o cargo" />
+
+                <label class="label-modal">CPF</label>
+                <input maxlength="14" id="Cpf" name="cpf" required="required" type="text" readonly="true"
+                  placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
+
+                <label class="label-adm" for="adm" id="adm-label-modal">
+                  <p>Administrador</p>
+                  <input type="checkbox" id="adm" name="adm">
+                </label>
+              </div>
+            </div>
+            <div class="toButton">
+              <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
+            </div>
+          </form>
+          <div class="container-aguarde">
+            <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+</body>
+
+</html>
+<script>
+  let recuperaDadosIntegrante = [];
+  let contador = 0;
+  let contadorCriarElemento = 0;
+  let contadorGrafico = 0;
+
+  function openModal(mn) {
+    let modal = document.getElementById(mn);
+    if (typeof modal == "undefined" || modal === null) return;
+
+    modal.style.display = "Block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal(mn) {
+    let modal = document.getElementById(mn);
+
+    if (typeof modal == "undefined" || modal === null) return;
+
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  function carregarGrafico() {
+    setInterval(
+      function myFunction() {
+        obterDadosGraficoPrimeiraVez(1)
+      }, 5000)
+
+  };
+
+  function carregarDadosIntegrante(fk_id_empresa, equipe_integrante, nome_integrante_app) {
+    fetch(`/usuarios/modalIntegrantes/${fk_id_empresa}/${equipe_integrante}/${nome_integrante_app}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          recuperaDadosIntegrante = []
+
+          resposta.json().then(json => {
+            recuperaDadosIntegrante.push(json[0].us_login);
+            recuperaDadosIntegrante.push(json[0].us_cargo);
+            recuperaDadosIntegrante.push(json[0].us_nome_funcionario);
+            recuperaDadosIntegrante.push(json[0].id_cpf);
+            recuperaDadosIntegrante.push(json[0].us_equipe);
+            recuperaDadosIntegrante.push(json[0].us_is_adm);
+
+            document.getElementById("login_cad").value = recuperaDadosIntegrante[0];
+            document.getElementById("cargo").value = recuperaDadosIntegrante[1];
+            document.getElementById("nome_cad").value = recuperaDadosIntegrante[2];
+            document.getElementById("Cpf").value = mCPF(recuperaDadosIntegrante[3]);
+            document.getElementById("time").value = recuperaDadosIntegrante[4];
+            recuperaDadosIntegrante[5] != 0 ? adm.checked = true : adm.checked = false;
+          });
+
+        } else {
+          console.log('Erro ao recuperar os dados de Integrantes');
+        }
+      });
+  }
+
+  function obterDadosMaquina(nome_integrante_app) {
+    fetch(`/maquinas/dadosHardware/integrante/${nome_integrante_app}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          let recuperaDadosHardware = []
+
+          resposta.json().then(json => {
+            recuperaDadosHardware.push(json[0].us_nome_maquina);
+            recuperaDadosHardware.push(json[0].us_vl_ram_total);
+            recuperaDadosHardware.push(json[0].us_vl_disco_total);
+            recuperaDadosHardware.push(json[0].us_vl_cpu_total);
+
+            nomePc.innerHTML += recuperaDadosHardware[0]
+            total_ram.innerHTML += recuperaDadosHardware[1] + " Gb"
+            total_disco.innerHTML += recuperaDadosHardware[2] + " Gb"
+            cpu.innerHTML += recuperaDadosHardware[3]
+          });
+
+        } else {
+          console.log('Erro ao recuperar os dados de Hardware');
+        }
+      });
+  }
+
+  function obterDadosGraficoRamGestor(nome, equipe, cargo) {
+
+    fetch(`/leituras/processos/ram/${nome}/${equipe}/${cargo}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log("Entrou na RAM do gestor")
+          let resultado = [];
+          let resultadoRam = [];
+          let resultadoIDE = [];
+          let resultadoLimpo = []
+
+          function percorrer(obj) {
+            for (var propriedade in obj) {
+              if (obj.hasOwnProperty(propriedade)) {
+                if (typeof obj[propriedade] == "object") {
+                  percorrer(obj[propriedade]);
+                } else {
+                  resultado.push(obj[propriedade]);
+                }
+              }
+            }
+          }
+
+          percorrer(resposta);
+          resultado = resultado.reverse();
+          console.log("resultado", resultado)
+          var unico = resultado.filter(function (elem, index, self) {
+            if (index === self.indexOf(elem)) {
+
+            } else {
+              resultadoLimpo.push(index);
+            }
+
+            return index === self.indexOf(elem)
+          });
+
+          for (let index = 0, index2 = 0; index < resultado.length; index++) {
+            if (index == resultadoLimpo[index2]) {
+              let index4 = resultadoLimpo.length
+              index4--
+
+              for (let index3 = 0, index5 = 0; index3 < resultadoLimpo.length; index3++) {
+
+                const element = resultadoLimpo[index3]
+
+                if (index == element) {
+                  resultado.splice(resultadoLimpo[index4], 2)
+                  index2 = resultadoLimpo[index4]
+                  index4--
+                  index = resultadoLimpo[++index5]
+                }
+              }
+            }
+          }
+
+          // if (!resultado.length % 2 == 0) {
+          //   resultado.splice(0, 1)
+          // }
+
+          for (let index = 0; index < resultado.length; index++) {
+            const element = resultado[index]
+
+            if (typeof element === "string") {
+              resultadoIDE.push(element)
+            } else if (typeof element === 'number') {
+              resultadoRam.push(element)
+            } else {
+              console.error("Nenhum dado encontrado.")
+            }
+          }
+
+          function chamarGraficos() {
+            if (contadorCriarElemento == 0) {
+              if (resultadoIDE.length && resultadoRam.length != 0) {
+
+                for (let index = 0; index < resultadoIDE.length; index++) {
+                  graficoContainer = document.querySelector('.grafic-container')
+                  separa = document.createElement('div');
+                  separa.id = `separa-graficos`;
+                  if (separa.classList) separa.classList.add("separa-graficos");
+                  else separa.className += " separa-graficos";
+
+                  let ramIDE = resultadoRam[index]
+                  let nomeIDE = resultadoIDE[index]
+
+                  // div Imagem
+                  let img1 = document.createElement('img')
+                  img1.src = `../../img/${nomeIDE}.png`
+                  if (img1.classList) img1.classList.add("img-grafic");
+                  else img1.className += " img-grafic";
+
+                  // div gráfico
+                  let graficosTamanho = document.createElement('div');
+                  graficosTamanho.id = `${nomeIDE}`;
+                  if (graficosTamanho.classList) graficosTamanho.classList.add("graficos-1");
+                  else graficosTamanho.className += " graficos-1";
+
+                  // div do relogio
+                  let containerRelogio = document.createElement('div');
+                  if (containerRelogio.classList) containerRelogio.classList.add("container-relogio");
+                  else containerRelogio.className += " container-relogio";
+
+                  // div Imagem
+                  let img2 = document.createElement('img')
+                  img2.src = `../../img/relogio.svg`
+                  img2.style = "height: 24px;"
+                  if (img2.classList) img2.classList.add("relogio-grafico");
+                  else img2.className += " relogio-grafico";
+
+                  // div label hora
+                  let labelHora = document.createElement('div');
+                  if (labelHora.classList) labelHora.classList.add("label-hora");
+                  else labelHora.className += " label-hora";
+
+                  // div p
+                  let divP = document.createElement('p');
+                  divP.id = `${nomeIDE}${index}`
+                  divP.innerHTML = `0${index}H4${index + 2}M`
+
+                  graficoContainer.appendChild(separa);
+                  separa.appendChild(img1);
+                  separa.appendChild(graficosTamanho);
+                  separa.appendChild(containerRelogio);
+                  containerRelogio.appendChild(img2);
+                  containerRelogio.appendChild(labelHora);
+                  labelHora.appendChild(divP);
+
+                }
+              } else {
+                console.error("Erro ao criar elementos")
+              }
+              contadorCriarElemento++
+            }
+
+            if (resultadoIDE.length && resultadoRam.length != 0) {
+
+              for (let index = 0; index < resultadoIDE.length; index++) {
+                let nomeIDE = resultadoIDE[index]
+                let ramIDE = resultadoRam[index]
+
+                criarGrafico(nomeIDE, ramIDE);
+              }
+            } else {
+              console.error("Erro ao criar gráfico")
+            }
+
+            /*fim do chamar grafico*/
+          }
+
+          function criarGrafico(id, valor) {
+            grafic = document.querySelector(`#${id}`)
+            grafic.style.width = `${valor.toFixed(0)}%`;
+            grafic.innerHTML = `${valor.toFixed(0)}%`;
+          }
+
+          if (contador == 0) {
+            if (resposta == 0) {
+
+              let divGrafico = document.querySelector('.grafic-container')
+              divGrafico.style.alignItems = 'center'
+              divGrafico.style.justifyContent = 'center'
+
+              let img1 = document.createElement('img')
+              img1.src = "../../img/warning.png"
+              img1.style.width = "25%"
+              img1.style.textAlign = "center"
+              img1.style.marginRight = "2vw"
+              document.querySelector('.grafic-container').appendChild(img1);
+
+              let aviso = document.createElement('div')
+              aviso.style = `font-family: 'Inter', sans-serif;`
+              aviso.style.display = "flex"
+              aviso.style.textAlign = "center"
+              aviso.style.color = "#514E4D";
+              aviso.style.fontSize = "2vh"
+              aviso.style.alignItems = "flex-end"
+              aviso.style.height = "40%"
+              aviso.style.width = "85%"
+              aviso.style.marginRight = "2vw"
+              aviso.innerHTML = "Este usuário não tem nenhuma IDE selecionada! <br> Peça para ele selecionar uma IDE, para que possamos monitorar."
+              aviso.id = "aviso"
+              divGrafico.appendChild(aviso);
+              contador++
+            } else {
+              chamarGraficos()
+            }
+          }
+
+          var graficoTempo = new ldBar("#graficoTempo");
+          var graficoTempo2 = document.getElementById('graficoTempo').ldBar;
+          graficoTempo.set(60)
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+  }
+
+  function funciona() {
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#usuario-tutorial'),
+        intro: 'Aqui você pode consultar os dados do usuário desse máquina!',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.edit'),
+        intro: 'Ao clicar no lapís você pode editar as informações pessoais do funcionário',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#maq-tutorial'),
+        intro: 'Aqui você pode consultar as informações da máquina do usuário',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#graficoTempo'),
+        intro: 'Aqui você pode consultar os gráfico de tempo de uso da máquina',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.grafic-container'),
+        intro: 'Aqui você pode consultar os gráfico de ram e tempo de uso em relação ao ambiente de desenvolvimento',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).start();
+  }
+
+
+</script>
+
+<!-- estilo do grafico -->
+<style>
+  .label-center path.mainline {
+    stroke-width: 10;
+    stroke: #B73447;
+  }
+
+  .label-center path.baseline {
+    stroke-width: 9;
+    stroke: #A3C6C1;
+  }
+</style>
+
+<!-- estilo da label central -->
+<style type="text/css">
+  .ldBar-label:after {
+    content: "";
+  }
+
+  .ldBar-label {
+    color: #d6ece1;
+    font-family: 'Bebas Neue';
+    font-size: 0;
+    font-weight: 900;
+  }
+</style>

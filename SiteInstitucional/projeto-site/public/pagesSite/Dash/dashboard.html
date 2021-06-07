@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../css/dash.css">
+  <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+  <script defer src="../../js/dash.js"></script>
+  <script defer src="../../funcoes.js"></script>
+  <!-- links api -->
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <link rel="stylesheet" href="../../css/loading-bar.css">
+  <link rel="stylesheet" href="../../css/loading-bar.min.css">
+  <script src="../../js/loading-bar.js"></script>
+  <script src="../../js/loading-bar.min.js"></script>
+  <title>KCODE</title>
+</head>
+
+<body onload="verificar_autenticacao()">
+  <main class="page">
+    <div class="menu">
+      <div class="container">
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+                </span>
+                <span class="title">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="perfildev.html">
+                <span class="icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+                <span class="title">Perfil</span>
+              </a>
+            </li>
+            <li>
+              <a onclick="funciona()">
+                <span class="icon">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </span>
+                <span class="title">Tutorial</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="darkMode()">
+                <span class="icon">
+                  <i class="fa fa-cog" aria-hidden="true">
+                  </i>
+                </span>
+                <span class="title">Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="logoff()">
+                <span class="icon">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </span>
+                <span class="title">Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="toggle"></div>
+      </div>
+    </div>
+    <!-- menu end-->
+    <header>
+      <div class="box-recepction">
+        <div class="recection-welcome-b">
+          <h1>Bem vindo, <b id="b_usuario0">a</b> </h1>
+          <p>Escolha a IDE que gostaria de consultar:</p>
+        </div>
+        <div class="logo-recepction">
+          <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+
+        </div>
+      </div>
+    </header>
+    <div class="ides-container">
+
+      <div class="container-info">
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Máquina</h1>
+          </div>
+          <div class="container-label">
+            <p id="ram"> Total Ram: </p>
+            <p id="disco"> Total Disco: </p>
+            <p id="cpu"> Processador: </p>
+          </div>
+        </div>
+
+        <div class="legenda-3">
+          <div class="box-ram">
+            <div class="uso-ram"></div>
+            <p>Uso de Ram</p>
+          </div>
+
+          <div class="box-ram">
+            <div class="uso-livre"></div>
+            <p>Livre</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="separation-ides">
+        <div class="box-ides">
+          <div class="idesLogo" id="criaImg" value="0">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="1">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="2">
+
+          </div>
+        </div>
+
+        <div class="box-ides">
+          <div class="idesLogo" id="criaImg" value="3">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="4">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="5">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="btn" id="next">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="ides-container-part2">
+      <div class="container-info">
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Máquina</h1>
+          </div>
+
+          <div class="container-label">
+            <p id="ram2"> Total Ram: </p>
+            <p id="disco2"> Total Disco: </p>
+            <p id="cpu2"> Processador: </p>
+          </div>
+        </div>
+
+        <div class="legenda-3">
+          <div class="box-ram">
+            <div class="uso-ram"></div>
+            <p>Uso de Ram</p>
+          </div>
+
+          <div class="box-ram">
+            <div class="uso-livre"></div>
+            <p>Livre</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="separation-ides">
+        <div class="box-ides">
+          <div class="idesLogo" id="criaImg" value="6">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="7">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="8">
+
+          </div>
+        </div>
+        <div class="box-ides">
+          <div class="idesLogo" id="criaImg" value="9">
+
+          </div>
+          <div class="idesLogo" id="criaImg" value="10">
+
+          </div>
+          <div class="idesLogo">
+          </div>
+        </div>
+      </div>
+      <div class="btn" id="back">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="footer-ajuda">
+      <div class="ajuda">
+        <script id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
+
+<!-- script cria grafico -->
+<script>
+
+  let contadorCriarElemento = 0
+  let contadorGrafico = 0
+  let contador = 0
+
+  function aguardar() {
+    let loading = document.createElement('img')
+    loading.style.position = "absolute";
+    loading.src = "../../img/loading-dash.gif"
+    loading.style.height = "40%"
+
+    document.querySelector('.ides-container').appendChild(loading);
+    if (loading.classList) loading.classList.add("carregando");
+    else loading.className += " carregando";
+  }
+
+  function finalizar_aguardar() {
+    let carregar = document.querySelector('.carregando')
+    carregar.style.display = "none";
+  }
+
+  function carregarGrafico() {
+    if (contadorGrafico == 0) {
+      aguardar()
+      obterTotalHardware(id_usuario)
+      obterDadosGraficoRam(id_usuario)
+      contadorGrafico++
+      return carregarGrafico();
+    } else {
+      setInterval(
+        function myFunction() {
+          obterDadosGraficoRam(id_usuario)
+        }, 60000)
+    }
+  };
+
+  function obterTotalHardware(id_usuario) {
+    fetch(`/maquinas/dadosHardware/${id_usuario}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          let recuperaDadosHardware = []
+
+          resposta.json().then(json => {
+            recuperaDadosHardware.push(json[0].us_vl_ram_total);
+            recuperaDadosHardware.push(json[0].us_vl_disco_total);
+            recuperaDadosHardware.push(json[0].us_vl_cpu_total);
+
+            ram.innerHTML += recuperaDadosHardware[0] + " Gb"
+            disco.innerHTML += recuperaDadosHardware[1] + " Gb"
+            cpu.innerHTML += recuperaDadosHardware[2]
+
+            ram2.innerHTML += recuperaDadosHardware[0] + " Gb"
+            disco2.innerHTML += recuperaDadosHardware[1] + " Gb"
+            cpu2.innerHTML += recuperaDadosHardware[2] + " Gb"
+
+          });
+
+        } else {
+          console.log('Erro ao recuperar os daods de Hardware');
+        }
+      });
+  }
+
+  function obterDadosGraficoRam(id_usuario) {
+
+    fetch(`/leituras/processos/ram/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        finalizar_aguardar()
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          let resultado = [];
+          let resultadoRam = [];
+          let resultadoIDE = [];
+          let resultadoLimpo = []
+          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
+            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
+
+          resultadoIDE.length <= 6 ? next.style.visibility = "hidden" : next.style.visibility = "visible"
+
+          function percorrer(obj) {
+            for (var propriedade in obj) {
+              if (obj.hasOwnProperty(propriedade)) {
+                if (typeof obj[propriedade] == "object") {
+                  percorrer(obj[propriedade]);
+                } else {
+                  resultado.push(obj[propriedade]);
+                }
+              }
+            }
+          }
+
+          percorrer(resposta);
+          resultado = resultado.reverse();
+          console.log("resultado invertido ", resultado);
+
+          var unico = resultado.filter(function (elem, index, self) {
+            if (index === self.indexOf(elem)) {
+
+            } else {
+              resultadoLimpo.push(index);
+            }
+
+            return index === self.indexOf(elem)
+          });
+
+          console.log("resultado limpo", resultadoLimpo)
+
+          for (let index = 0, index2 = 0; index < resultado.length; index++) {
+            if (index == resultadoLimpo[index2]) {
+              let index4 = resultadoLimpo.length
+              index4--
+
+              for (let index3 = 0, index5 = 0; index3 < resultadoLimpo.length; index3++) {
+
+                const element = resultadoLimpo[index3]
+
+                if (index == element) {
+                  resultado.splice(resultadoLimpo[index4], 2)
+                  index2 = resultadoLimpo[index4]
+                  index4--
+                  index = resultadoLimpo[++index5]
+                }
+              }
+            }
+          }
+
+
+          for (let index = 0; index < resultado.length; index++) {
+            const element = resultado[index]
+
+            if (typeof element === "string") {
+              resultadoIDE.push(element)
+            } else if (typeof element === 'number') {
+              resultadoRam.push(element)
+            } else {
+              console.error("Nenhum dado encontrado.")
+            }
+
+          }
+
+          function chamarGraficos() {
+            if (contadorCriarElemento == 0) {
+              if (resultadoIDE.length && resultadoRam.length != 0) {
+                console.log("FOI")
+
+                for (let index = 0; index < resultadoIDE.length; index++) {
+
+                  let ramIDE = resultadoRam[index]
+                  let nomeIDE = resultadoIDE[index]
+                  console.log('resultado RAM ', ramIDE)
+                  console.log('Resultado IDe ', nomeIDE)
+
+                  var logoIDE = document.querySelectorAll('#criaImg');
+                  var first = logoIDE[index];
+
+                  if (first.getAttribute('value') == index) {
+
+                    if (ramIDE > 2) {
+                      let alerta = document.createElement('div')
+                      alerta.innerHTML = "1"
+                      first.appendChild(alerta);
+                      if (alerta.classList) alerta.classList.add("alert");
+                      else alerta.className += " alert";
+                    }
+
+                    let img1 = document.createElement('img')
+                    img1.src = `../../img/${nomeIDE}.png`
+                    img1.id = nomeIDE
+                    img1.addEventListener('click', function () {
+                      sessionStorage.ide_usuario_meu_app = nomeIDE
+                      window.location.href = 'graficoshardware.html'
+                    })
+
+                    first.appendChild(img1);
+                    if (img1.classList) img1.classList.add("logo-ide");
+                    else img1.className += " logo-ide";
+
+                    let bIde = document.createElement('b')
+
+                    switch (nomeIDE) {
+                      case "Xcode":
+                        bIde.innerHTML = nomesTratadosIDE[0]
+                        break;
+                      case "pycharm64":
+                        bIde.innerHTML = nomesTratadosIDE[1]
+                        break;
+                      case "Code":
+                        bIde.innerHTML = nomesTratadosIDE[2]
+                        break;
+                      case "netbeans64":
+                        bIde.innerHTML = nomesTratadosIDE[3]
+                        break;
+                      case "idea64":
+                        bIde.innerHTML = nomesTratadosIDE[4]
+                        break;
+                      case "studio64":
+                        bIde.innerHTML = nomesTratadosIDE[5]
+                        break;
+                      case "phpstorm64":
+                        bIde.innerHTML = nomesTratadosIDE[6]
+                        break;
+                      case "webstorm64":
+                        bIde.innerHTML = nomesTratadosIDE[7]
+                        break;
+                      case "eclipse":
+                        bIde.innerHTML = nomesTratadosIDE[8]
+                        break;
+                      case "devenv":
+                        bIde.innerHTML = nomesTratadosIDE[9]
+                        break;
+                      default:
+                        break;
+                    }
+
+                    first.appendChild(bIde);
+
+                    let div1 = document.createElement('div')
+                    div1.id = `${nomeIDE}${index}`
+                    div1.setAttribute('data-fill-background', '#A3C6C1')
+                    div1.setAttribute('data-fill', '#B73447')
+                    div1.setAttribute('data-preset', 'energy')
+                    div1.style = "width: 60%; height: 20%;"
+                    first.appendChild(div1);
+
+                    if (div1.classList) div1.classList.add("label-center");
+                    else div1.className += " label-center";
+                  }
+
+                }
+
+              } else {
+                console.error("Erro ao criar elementos")
+              }
+              contadorCriarElemento++
+            }
+
+            if (resultadoIDE.length && resultadoRam.length != 0) {
+
+              for (let index = 0; index < resultadoIDE.length; index++) {
+                let nomeIDE = resultadoIDE[index]
+                let ramIDE = resultadoRam[index]
+
+                nomeIDE = `${nomeIDE}${index}`
+
+                criarGrafico(nomeIDE, ramIDE);
+              }
+            } else {
+              console.error("Erro ao criar gráfico")
+            }
+          }
+
+          function criarGrafico(id, valor) {
+            let ram = new ldBar(`#${id}`);
+            let ramId = document.getElementById(`${id}`).ldBar;
+            ram.set(valor)
+          }
+
+          if (contador == 0) {
+            if (resposta == 0) {
+              let divGrafico = document.querySelector('.separation-ides')
+              let img1 = document.createElement('img')
+              img1.src = "../../img/warning.png"
+              img1.style.position = "absolute"
+              img1.style.height = "25%"
+              img1.style.marginTop = "-20%"
+              img1.style.textAlign = "center"
+              divGrafico.appendChild(img1);
+
+              let aviso = document.createElement('div')
+              aviso.style = `font-family: 'Inter', sans-serif;`
+              aviso.style.position = "absolute";
+              aviso.style.textAlign = "center"
+              aviso.style.color = "#514E4D";
+              aviso.style.fontSize = "3vh"
+              aviso.innerHTML = "Você não tem nenhuma IDE selecionada! <br> Vá até Perfil e selecione a IDE que deseja monitorar."
+              aviso.id = "aviso"
+
+              divGrafico.appendChild(aviso);
+              contador++
+            } else {
+              chamarGraficos()
+            }
+          }
+
+        });
+      } else {
+        finalizar_aguardar()
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        finalizar_aguardar()
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+
+
+  }
+  function funciona() {
+    let divImg = document.querySelector('#criaImg')
+    let alerta = document.createElement('div')
+    alerta.innerHTML = "1"
+    divImg.appendChild(alerta);
+    if (alerta.classList) alerta.classList.add("alert");
+    else alerta.className += " alert";
+
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.info-time'),
+        intro: 'Aqui você pode consultar os dados da sua máquina',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('#criaImg'),
+        intro: 'Esses são os ambientes de desenvolvimento escolhidos por você e seu consumo de ram logo abaixo',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.alert'),
+        intro: 'Esse alerta é mostrado se existe algum tipo de problema na máquina do usuário'
+      },
+
+      {
+        element: document.querySelector('.ajuda'),
+        intro: 'Esse é o nosso botão de suporte, com ele pode contatar nossa equipe sempre que precisar de ajuda 🐲',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).onbeforeexit(function () {
+      return apaga();
+    }).start();
+  }
+
+  function apaga() {
+    var node = document.querySelector('.alert')
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
+  }
+
+</script>
+
+<!-- estilo do grafico -->
+<style>
+  .label-center path.mainline {
+    stroke-width: 10;
+  }
+
+  .label-center path.baseline {
+    stroke-width: 9;
+  }
+</style>
+
+<!-- estilo da label central -->
+<style type="text/css">
+  .ldBar-label {
+    color: #514e4d;
+    font-family: 'Bebas Neue';
+    font-size: 1.8em;
+  }
+</style>
